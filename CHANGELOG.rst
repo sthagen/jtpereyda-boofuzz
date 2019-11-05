@@ -9,6 +9,7 @@ Features
 - Added a favicon
 - new primitive `s_bytes` which fuzzes an arbitrary length binary value (similiar to `s_string`)
 - We are now using `Black` for code style standardization
+- Added support for Python 3.8
 
 Fixes
 ^^^^^
@@ -23,6 +24,7 @@ Fixes
 - Fixed receive function in `fuzz_logger_curses`
 - Installing boofuzz with `sudo` is no longer recommended, use the `--user` option of pip instead
 - Fixed setting socket timeout options on Windows
+- If all sockets are exhausted, repeatedly try fuzzing for 4 minutes before failing
 
 v0.1.5
 ------
