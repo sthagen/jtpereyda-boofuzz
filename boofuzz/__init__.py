@@ -128,7 +128,8 @@ __all__ = [
     "Word",
 ]
 
-__version__ = "0.1.5"
+__version__ = "0.1.6"
+
 
 # REQUEST MANAGEMENT
 def s_get(name=None):
@@ -319,13 +320,15 @@ def s_checksum(
     currently open blocks.
 
     :type  block_name: str
-    :param block_name: Name of block to apply sizer to
+    :param block_name: Name of block for checksum calculations
 
-    :type  algorithm:  str
+    :type  algorithm:  str, function
     :param algorithm:  (Optional, def=crc32) Checksum algorithm to use. (crc32, crc32c, adler32, md5, sha1, ipv4, udp)
+                       Pass a function to use a custom algorithm. This function has to take and return byte-type data.
 
     :type  length:     int
-    :param length:     (Optional, def=0) NOT IMPLEMENTED. Length of checksum, specify 0 to auto-calculate
+    :param length:     (Optional, def=0) Length of checksum, auto-calculated by default. Must be specified manually when
+                       using a custom algorithm.
 
     :type  endian:     Character
     :param endian:     (Optional, def=LITTLE_ENDIAN) Endianness of the bit field (LITTLE_ENDIAN: <, BIG_ENDIAN: >)
@@ -370,7 +373,7 @@ def s_repeat(block_name, min_reps=0, max_reps=None, step=1, variable=None, fuzza
     :see: Aliases: s_repeater()
 
     :type  block_name: str
-    :param block_name: Name of block to apply sizer to
+    :param block_name: Name of block to repeat
     :type  min_reps:   int
     :param min_reps:   (Optional, def=0) Minimum number of block repetitions
     :type  max_reps:   int
@@ -637,7 +640,7 @@ def s_from_file(value, encoding="ascii", fuzzable=True, max_len=0, name=None, fi
     :type  value:    str
     :param value:    Default string value
     :type  encoding: str
-    :param encoding: (Optonal, def="ascii") String encoding, ex: utf_16_le for Microsoft Unicode.
+    :param encoding: (DEPRECIATED, def="ascii") String encoding, ex: utf_16_le for Microsoft Unicode.
     :type  fuzzable: bool
     :param fuzzable: (Optional, def=True) Enable/disable fuzzing of this primitive
     :type  max_len:  int
@@ -648,7 +651,7 @@ def s_from_file(value, encoding="ascii", fuzzable=True, max_len=0, name=None, fi
     :param filename: (Mandatory) Specify filename where to read fuzz list
     """
 
-    s = primitives.FromFile(value, encoding, fuzzable, max_len, name, filename)
+    s = primitives.FromFile(value, fuzzable, max_len, name, filename)
     blocks.CURRENT.push(s)
 
 
