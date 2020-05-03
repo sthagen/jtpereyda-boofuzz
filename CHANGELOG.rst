@@ -18,6 +18,9 @@ Features
 - Fixed many bugs in which a failure would not stop the test case evaluation.
 - Added `capture_output` option to process monitor to capture target process stderr/stdout .
 - Added post-start-target callbacks (called every time a target is started or restarted).
+- Added new boofuzz logo and favicon to docs and webinterface.
+- Added `FileConnection` to dump messages to files.
+- Added method to gracefully stop PED-RPC Server.
 
 Fixes
 ^^^^^
@@ -31,6 +34,7 @@ Fixes
 - Removed deprecated session arguments `fuzz_data_logger`, `log_level`, `logfile`, `logfile_level` and `log()`.
 - Removed deprecated logger `FuzzLoggerFile`.
 - Fixed network monitor compatibility with Python 3.
+- Minor console GUI optimizations.
 
 v0.1.6
 ------
