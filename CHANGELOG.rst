@@ -3,8 +3,30 @@ Changelog
 
 Upcoming
 --------
+
 Features
 ^^^^^^^^
+- Memory optimization: Efficient mutation generation and smarter string reuse -- decrease memory consumption by orders of magnitude.
+- `Aligned` block: Aligns content length to multiple of certain number of bytes.
+- Relative names: Name references for `Checksum`, `Size`, etc. now resolve absolute and relative names. Block and primitive names no longer need to be globally unique within a message, they only need to be locally unique within a block.
+- Passing data between messages: Callbacks now have a `TestCaseContext` object to which one can save data to be used later in the test case. `TestCaseSessionReference` can be passed as a default value in a protocol definition. The name it references must have been saved by the time that message in the protocol is reached.
+- `Fuzzable` rewrite: Simpler definitions for new fuzz primitives. See `static.py` for an example of a very simple primitive.
+- Protocol definition: Protocols can now be defined with an object oriented rather than static approach.
+- Independent mutation and encoding steps: Will enable multiple mutations and code coverage feedback.
+- Procmon: Additional debug steps. Partial backwards compatibility for old interface.
+
+
+Fixes
+^^^^^
+- Various web interface fixes.
+- Various refactors and simplifications.
+- Fewer duplicates from `Group` primitives.
+
+v0.2.1
+------
+Features
+^^^^^^^^
+- Added simple TFTP fuzzer example.
 
 Fixes
 ^^^^^
