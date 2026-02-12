@@ -81,6 +81,7 @@ coverage:
 
 - `boofuzz-ftp`_
 - `boofuzz-http`_
+- `boofuzz-can`_
 
 If you have an open source boofuzz protocol suite to share, please :ref:`let us know <community>`!
 
@@ -130,6 +131,7 @@ For updates, follow `@b00fuzz`_ on Twitter.
 .. _@b00fuzz: https://twitter.com/b00fuzz
 .. _boofuzz-ftp: https://github.com/jtpereyda/boofuzz-ftp
 .. _boofuzz-http: https://github.com/jtpereyda/boofuzz-http
+.. _boofuzz-can: https://github.com/edgecase1/boofuzz-can
 
 
 Indices and tables
